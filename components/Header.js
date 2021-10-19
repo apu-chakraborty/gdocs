@@ -1,7 +1,15 @@
 import Button from "@material-tailwind/react/Button";
 import Icon from "@material-tailwind/react/Icon";
+import { signOut } from 'next-auth/client'
 
-function Header() {
+
+function Header({user}) {
+
+    const handleSignout = (e) => {
+        e.preventDefault()
+        signOut()
+      }
+
     return (
         <div className="flex top-0 z-50 items-center px-4 py-2 shadow-md bg-white full-width">
             <Button
@@ -10,15 +18,15 @@ function Header() {
                 rounded={true}
                 iconOnly={true}
                 ripple="dark"
-                className="h-10 w-10 border-0">
+                className="h-10 w-10 border-none mr-3">
                 <Icon name="menu"
-                    size="3xl" />
+                    size="2xl" />
             </Button>
 
-            <Icon color="blue" name="description" size="5xl" />
+            <Icon color="blue" name="description" size="4xl" />
 
-            <h1 className="ml-2 text-gray-700 text-2xl">
-                Docs
+            <h1 className="ml-2 text-gray-700 text-2xl ">
+                Gdocs
             </h1>
 
 
@@ -39,7 +47,7 @@ function Header() {
                 rounded={true}
                 iconOnly={true}
                 ripple="dark"
-                className="h-10 w-10 border-transparent">
+                className="h-10 w-10 border-none">
                 <Icon name="apps"
                     size="3xl" />
             </Button>
@@ -48,7 +56,8 @@ function Header() {
             <img
                 className="cursor-pointer h-12 w-12 rounded-full ml-2"
                 loading="lazy"
-                src="https://pbs.twimg.com/profile_images/453956388851445761/8BKnRUXg_400x400.png"
+                src={user?.image}
+                onClick={(e) => handleSignout(e)}
                 alt="" />
 
         </div>
