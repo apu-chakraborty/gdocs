@@ -5,10 +5,7 @@ import { signOut } from 'next-auth/client'
 
 function Header({user}) {
 
-    const handleSignout = (e) => {
-        e.preventDefault()
-        signOut()
-      }
+   
 
     return (
         <div className="flex top-0 z-50 items-center px-4 py-2 shadow-md bg-white full-width">
@@ -56,7 +53,7 @@ function Header({user}) {
             <img
                 className="cursor-pointer h-12 w-12 rounded-full ml-2"
                 loading="lazy"
-                src={user?.image}
+                src={user?.photoURL ? user?.photoURL : "/img/nopic.png"}
                 onClick={(e) => handleSignout(e)}
                 alt="" />
 

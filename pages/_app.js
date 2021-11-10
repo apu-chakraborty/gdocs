@@ -1,29 +1,26 @@
 import "@material-tailwind/react/tailwind.css";
 import 'tailwindcss/tailwind.css'
 import { Provider } from 'next-auth/client'
+import {auth} from '../firebase'
+import {useEffect,useState} from 'react'
 
 function MyApp({ Component, pageProps }) {
+  const [user,setUser] = useState(null)
+  useEffect(()=>{
+       auth.onAuthStateChanged(user=>{
+         if(user) setUser(user)
+         else setUser(null)
+       })
+  },[user])
   return (
-    <Provider session={pageProps.session}>
+    <>
 
-      <Component {...pageProps} />
+      <Component {...pageProps}  user={user}  />
 
-    </Provider>
+    </>
   )
 }
 
 
-// MyApp.getInitialProps = async ({ ctx }) => {
-//   console.log
-//   // if (ctx && ctx.req && cookie && ctx.res && ctx?.req?.headers && ctx?.res?.writeHead && ctx?.res?.end) {
-   
-
-//   //   if (!token && !["/login","/", "/404", '/sign-up', '/forgot-password', '/change-password', '/otp-verification', '/promotion', '/cancellation-policy', '/terms-conditions', '/privacy-policy'].includes(ctx.pathname.replace("/[id]",""))) {
-//   //     ctx.res.writeHead(301, { Location: '/login' })
-//   //     ctx.res.end()
-//   //     return
-//   //   }
-//   // }
-// };
 
 export default MyApp

@@ -1,20 +1,46 @@
 import Head from 'next/head'
 import Header from '../components/Header'
-
+import { useState, useEffect } from 'react';
 
 import Button from "@material-tailwind/react/Button";
 import Icon from "@material-tailwind/react/Icon";
 import Image from 'next/image'
-import {
-  signIn,
-  signOut,
-  useSession
-} from 'next-auth/client';
+import { useCollectionOnce } from 'react-firebase-hooks/firestore';
+import Modal from '../components/Modal';
+import DocumentList from '../components/DocumentList';
+import { db } from '../firebase';
 
 
-export default function Home() {
-  const [session, loading] = useSession();
-  console.log(session, "ghgjh")
+export default function Home({ user }) {
+  const [showmodal, setShowModal] = useState(false);
+  const [lists, setList] = useState([]);
+
+  const createDoc = () => {
+    setShowModal(true)
+  }
+
+  useEffect(() => {
+    getDoc(user?.email)
+  }, [user?.email])
+
+
+  // const [snapshot] = useCollectionOnce(
+  //   db.collection("userDocs").doc(user?.email).collection("docs").orderBy('timestamp', 'desc')
+  //   )
+
+  const getDoc = (email) => {
+    return db.collection("userDocs").doc(email).collection("docs").orderBy('timestamp', 'desc')
+      .get()
+      .then(querySnapshot => {
+        const data = querySnapshot.docs.map(doc => doc.data());
+        console.log(data); // array of cities objects
+        setList(data); // array of cities objects
+      });
+  }
+
+
+
+
   return (
     <div className="container">
       <Head>
@@ -27,11 +53,11 @@ export default function Home() {
       </Head>
 
       <main>
-        <Header user={session?.user} />
+        <Header />
 
         <section className="bg-gray-100 pb-10 px-10">
-          <div className="max-w-3xl mx-auto">
-            <div className="flex items-center justify-between py-6 pt-6">
+          <div className="max-w-3xl mx-auto" >
+            <div className="flex items-center justify-between py-6 pt-6" >
               <h2 className="text-gray-700 text-lg">Start a new document</h2>
               <Button
                 color="gray"
@@ -44,7 +70,7 @@ export default function Home() {
               </Button>
 
             </div>
-            <div className="relative h-52 w-40 border-2 cursor-pointer hover:border-blue-600">
+            <div className="relative h-52 w-40 border-2 cursor-pointer hover:border-blue-600" onClick={() => createDoc()}>
               <img src="/img/blank_doc.png"
                 layout="fill"
                 alt="blank"
@@ -63,9 +89,19 @@ export default function Home() {
               <Icon name="folder"
                 size="3xl" color="gray" />
             </div>
+            {/* listing  */}
+            {
+              lists?.map((list, i) => (
+                <DocumentList fileName={list.fileName} key={i} timestamp={list.timestamp} />
+
+              ))
+            }
           </div>
+
         </section>
       </main>
+
+      <Modal showmodal={showmodal} setShowModal={setShowModal} user={user} />
     </div>
   )
 }
