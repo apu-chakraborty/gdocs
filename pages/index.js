@@ -20,7 +20,7 @@ export default function Home({ user }) {
   }
 
   useEffect(() => {
-    getDoc(user?.email)
+    getDocs(user?.email)
   }, [user?.email])
 
 
@@ -28,13 +28,13 @@ export default function Home({ user }) {
   //   db.collection("userDocs").doc(user?.email).collection("docs").orderBy('timestamp', 'desc')
   //   )
 
-  const getDoc = (email) => {
+  const getDocs = (email) => {
     return db.collection("userDocs").doc(email).collection("docs").orderBy('timestamp', 'desc')
       .get()
       .then(querySnapshot => {
-        const data = querySnapshot.docs.map(doc => doc.data());
-        console.log(data); // array of cities objects
-        setList(data); // array of cities objects
+        // const data = querySnapshot.docs.map(doc => doc.data());
+        // console.log(data); 
+        setList(querySnapshot); // array of cities objects
       });
   }
 
@@ -91,8 +91,8 @@ export default function Home({ user }) {
             </div>
             {/* listing  */}
             {
-              lists?.map((list, i) => (
-                <DocumentList fileName={list.fileName} key={i} timestamp={list.timestamp} />
+              lists?.docs?.map((list, i) => (
+                <DocumentList fileName={list.data().fileName} key={i} timestamp={list.data().timestamp} id={list.id} />
 
               ))
             }

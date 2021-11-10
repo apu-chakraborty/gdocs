@@ -3,6 +3,7 @@ import 'tailwindcss/tailwind.css'
 import { Provider } from 'next-auth/client'
 import {auth} from '../firebase'
 import {useEffect,useState} from 'react'
+import "../style.css";
 
 function MyApp({ Component, pageProps }) {
   const [user,setUser] = useState(null)
