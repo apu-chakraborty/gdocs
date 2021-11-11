@@ -42,7 +42,7 @@ export default function Home({ user }) {
 
 
   return (
-    <div className="container">
+    <>
       <Head>
         <title>Gdocs</title>
         <link rel="icon" href="/favicon.ico" />
@@ -102,6 +102,6 @@ export default function Home({ user }) {
       </main>
 
       <Modal showmodal={showmodal} setShowModal={setShowModal} user={user} />
-    </div>
+    </>
   )
 }
