@@ -20,7 +20,7 @@ const {id} = router.query;
   }, [user?.email])
 
 
-    const getDoc = (email) => {
+    const getDoc = async (email)  => {
         return db.collection("userDocs").doc(email).collection("docs").doc(id)
           .get()
           .then(querySnapshot => {
@@ -34,8 +34,8 @@ const {id} = router.query;
     return (
         <div>
             <EditorHeader fileName={state?.fileName} timestamp={state?.timestamp} />
-           {state?.id}
-           <TextEditor user={user} id={id} />
+         
+           <TextEditor user={user} id={id} state={state} />
         </div>
     )
 }
