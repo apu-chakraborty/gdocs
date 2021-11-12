@@ -1,12 +1,16 @@
 import { useState } from "react"
 import { db, serverTimestamp } from "../firebase";
+import toast, { Toaster } from 'react-hot-toast';
 
 function Modal({ showmodal, setShowModal, user }) {
   const [doc, setDoc] = useState("")
 
 
   const createDoc = () => {
-    if (!doc) return;
+    if (!doc){
+      toast.error("Please Enter Your Document Title")
+      return
+    };
 
     db.collection("userDocs").doc(user.email).collection("docs").add({
       fileName: doc,
@@ -22,6 +26,8 @@ function Modal({ showmodal, setShowModal, user }) {
     <div>
       {showmodal &&
         <div className="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+<Toaster />
+
           <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
 
             <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
@@ -49,7 +55,6 @@ function Modal({ showmodal, setShowModal, user }) {
                       Create Docs
                     </h3>
                     <div className="mt-2">
-
 
                       <form >
                         <div class="mb-4 mt-5">

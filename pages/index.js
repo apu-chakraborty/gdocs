@@ -9,7 +9,7 @@ import { useCollectionOnce } from 'react-firebase-hooks/firestore';
 import Modal from '../components/Modal';
 import DocumentList from '../components/DocumentList';
 import { db } from '../firebase';
-import Login from '../components/Login';
+import Landing from '../components/Landing';
 
 
 export default function Home({ user }) {
@@ -40,7 +40,7 @@ export default function Home({ user }) {
   }
 
 
-if(!user) return <Login />
+if(!user) return <Landing />
 
   return (
     <>
