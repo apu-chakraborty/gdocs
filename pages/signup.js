@@ -1,6 +1,8 @@
 import {useState} from 'react'
 import Link from 'next/link'
 import {auth} from '../firebase'
+import toast, { Toaster } from 'react-hot-toast';
+
 
 export default function Signup() {
     const [email,setEmail] = useState('')
@@ -13,29 +15,16 @@ export default function Signup() {
        await result.user.updateProfile({
            displayName:name
        })
-       alert( `welcome ${result.user.displayName}`)  
+       toast.success( `welcome ${result.user.displayName}`)  
        }catch(err){
-        console.log(err.message, "hghghjg")    
+        toast.error(err.message, "hghghjg")    
        }
        
     }
 
 
     return (
-        // <div className="container center">
-        //     <h3>Plase Signup!!</h3>
-        //      <form onSubmit={(e)=>handleSubmit(e)}>
-        //          <div className="input-field">
-        //              <input type="text" placeholder="type your name" value={name} onChange={(e)=>setName(e.target.value)} />
-        //              <input type="email" placeholder="email" value={email} onChange={(e)=>setEmail(e.target.value)} />
-        //              <input type="password" placeholder="password" value={password} onChange={(e)=>setPassword(e.target.value)} />
-        //          </div>
-        //          <button type="submit" className="btn #fb8c00 orange darken-1">Signup</button>
-        //         <Link href="/login"><a><h5>Already have an account</h5></a></Link>
-        //      </form>
-            
-        // </div>
-
+   
 
 <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
   <div class="max-w-md w-full space-y-8">
@@ -50,6 +39,7 @@ export default function Signup() {
       </h2>
      
     </div>
+    <Toaster />
     <form class="mt-8 space-y-6" onSubmit={(e)=>handleSubmit(e)}>
       <input type="hidden" name="remember" value="true" />
       <div class="rounded-md shadow-sm -space-y-px">
