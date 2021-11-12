@@ -6,19 +6,10 @@ import ShareModal from "./ShareModal";
 
 import { useState } from "react"
 import { auth } from "../firebase";
+import { handleSignout } from "../services/common";
 function EditorHeader({ fileName, timestamp }) {
     const [showShare, setShowShare] = useState(false)
 
-    const handleSignout = () => {
-        auth.signOut().then(function() {
-            // Sign-out successful.
-            alert("succes")
-          }).catch(function(error) {
-            // An error happened.
-            alert(error)
-    
-          });
-       }
 
     return (
         <header className="flex justify-between items-center p-3 pb-1">
@@ -84,7 +75,7 @@ function EditorHeader({ fileName, timestamp }) {
                     width={35}
                     height={35}
                     className="cursor-pointer rounded-full ml-4"
-                onClick={() => handleSignout()}
+                onClick={(e) => handleSignout(e)}
                 />
             </div>
 

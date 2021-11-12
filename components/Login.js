@@ -1,4 +1,5 @@
 import toast, { Toaster } from 'react-hot-toast';
+import { handleLogin } from '../services/common';
 
 
 
@@ -9,14 +10,10 @@ export default function login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
-    try {
-      const result = await auth.signInWithEmailAndPassword(email, password)
-      toast.success(`welcome ${result.user.displayName}`)
-    } catch (err) {
-      toast.error(err.message)
-    }
+     handleLogin(email, password)
+  
 
   }
 
@@ -35,7 +32,7 @@ export default function login() {
             Sign in to your account
           </h2>
           <p class="mt-2 text-center text-sm text-gray-600">
-            Or
+            
             <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
               start your 14-day free trial
             </a>

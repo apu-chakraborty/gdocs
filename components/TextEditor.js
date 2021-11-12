@@ -21,7 +21,7 @@ const Editor = dynamic(
 const TextEditor = ({ user, id, state }) => {
 	const [editorState, setEditorState] = useState(EditorState.createEmpty());
 	const [loading, setLoading] = useState(false)
-	useEffect(() =>  {
+	useEffect(() => {
 		setTimeout(() => setLoading(true), 3000)
 		if (state?.editorState) {
 			// const parsedEditorState = JSON.parse(state?.editorState)
@@ -58,12 +58,23 @@ const TextEditor = ({ user, id, state }) => {
 			{/* {JSON.stringify(editorState)} */}
 			{
 				loading ? <Editor
-				editorState={editorState}
-				onEditorStateChange={handleEditorStateChange}
-				toolbarClassName="sticky top-0 !justify-center"
-				editorClassName="bg-white mt-6 shadow-lg w-3/4 lg:w-3/5 mx-auto p-10 border mb-10 min-h-screen"
+					editorState={editorState}
+					onEditorStateChange={handleEditorStateChange}
+					toolbarClassName="sticky top-0 !justify-center"
+					editorClassName="bg-white mt-6 shadow-lg w-3/4 lg:w-3/5 mx-auto p-10 border mb-10 min-h-screen"
 
-			/> : ""
+				/> :
+					<div class="flex justify-center items-center">
+						<div
+							className="
+								animate-spin
+								rounded-full
+								h-16
+								w-16
+								border-t-2 border-b-2 border-purple-500
+    "
+						></div>
+					</div>
 			}
 
 		</div>

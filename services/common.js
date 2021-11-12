@@ -1,8 +1,7 @@
 import { auth } from "../firebase"
 
 
-export const handleLogin = async (e)=>{
-        e.preventDefault()
+export const handleLogin = async (email, password)=>{
         try{
           const result = await auth.signInWithEmailAndPassword(email,password)
           alert( `welcome ${result.user.displayName}`)  
@@ -12,8 +11,7 @@ export const handleLogin = async (e)=>{
         
      }
 
- export const handleRegister = async (e)=>{
-        e.preventDefault()
+ export const handleRegister = async (name, email, password)=>{
         try{
           const result = await auth.createUserWithEmailAndPassword(email,password)
         await result.user.updateProfile({
@@ -21,7 +19,7 @@ export const handleLogin = async (e)=>{
         })
         alert( `welcome ${result.user.displayName}`)  
         }catch(err){
-         console.log(err.message, "hghghjg")    
+        alert(err.message)    
         }
         
      }

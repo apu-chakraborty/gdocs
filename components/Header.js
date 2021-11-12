@@ -1,21 +1,11 @@
 import Button from "@material-tailwind/react/Button";
 import Icon from "@material-tailwind/react/Icon";
-import { signOut } from 'next-auth/client'
-import { auth } from "../firebase";
+import { handleSignout } from "../services/common";
 
 
 function Header({user}) {
 
-   const handleSignout = () => {
-    auth.signOut().then(function() {
-        // Sign-out successful.
-        alert("succes")
-      }).catch(function(error) {
-        // An error happened.
-        alert(error)
-
-      });
-   }
+   
 
     return (
         <div className="flex top-0 z-50 items-center  px-4 py-2 shadow-md bg-white full-width">
