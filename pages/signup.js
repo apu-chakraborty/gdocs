@@ -42,7 +42,7 @@ export default function Signup() {
               <input
                 value={name} onChange={(e) => setName(e.target.value)}
                 name="name" type="text"
-                class="appearance-none rounded-none relative block w-full px-3 py-2 border 
+                class="appearance-none rounded-none relative block w-full px-3 py-3 border 
            border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none 
            focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Enter Your Name" />
             </div>
@@ -52,7 +52,7 @@ export default function Signup() {
               <input id="email-address"
                 value={email} onChange={(e) => setEmail(e.target.value)}
                 name="email" type="email" autocomplete="email"
-                class="appearance-none rounded-none relative block w-full px-3 py-2 border 
+                class="appearance-none rounded-none relative block w-full px-3 py-3 border 
            border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none 
            focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Email address" />
             </div>
@@ -64,7 +64,7 @@ export default function Signup() {
                 value={password} onChange={(e) => setPassword(e.target.value)}
 
                 name="password" type="password" autocomplete="current-password"
-                class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300
+                class="appearance-none rounded-none relative block w-full px-3 py-3 border border-gray-300
             placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 
             focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Password" />
             </div>
@@ -73,7 +73,7 @@ export default function Signup() {
 
 
           <div>
-            <button type="submit" class="group relative w-full flex justify-center py-4 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            <button type="submit" class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
               <span class="absolute left-0 inset-y-0 flex items-center pl-3">
 
                 <svg class="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -95,10 +95,12 @@ export default function Signup() {
 
 
         <div>
-            <button type="submit" class="group relative w-full flex justify-center py-4 px-4 border border-transparent text-sm font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+          <Link href={'/signin'}>
+            <button type="submit" class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
             
               Sign in
             </button>
+            </Link>
           </div>
       </div>
     </div>
