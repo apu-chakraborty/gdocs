@@ -51,7 +51,7 @@ function Header({user}) {
 
 
             <img
-                className="cursor-pointer h-12 w-12 rounded-full ml-2"
+                className="cursor-pointer h-10 w-10 rounded-full ml-2"
                 loading="lazy"
                 src={user?.photoURL ? user?.photoURL : "/img/nopic.png"}
                 onClick={(e) => handleSignout(e)}

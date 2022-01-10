@@ -2,10 +2,19 @@ import {
     FacebookShareButton,
     TwitterShareButton,
     WhatsappShareButton,
+    LinkedinShareButton,
+    PinterestShareButton,
+    TelegramShareButton,
+    InstapaperShareButton,
+InstagramShareButton,
+    InstagramIcon,
 
+    PinterestIcon,
+    TelegramIcon,
     FacebookIcon,
     TwitterIcon,
-    WhatsappIcon
+    WhatsappIcon,
+    LinkedinIcon
 } from 'react-share'
 
 function ShareModal({ showShare, setShowShare }) {
@@ -35,7 +44,7 @@ function ShareModal({ showShare, setShowShare }) {
 
                                     <div className="mt-6">
 
-                                        <div className="flex justify-between item-center">
+                                        <div className="flex gap-6 justify-between item-center">
                                             <FacebookShareButton
                                                 className="network__share-button"
                                                 url={window?.location?.href}
@@ -43,7 +52,7 @@ function ShareModal({ showShare, setShowShare }) {
 
                                             >
                                                 <FacebookIcon
-                                                    size={32}
+                                                    size={64}
                                                     round={true}
                                                 />
                                             </FacebookShareButton>
@@ -51,11 +60,11 @@ function ShareModal({ showShare, setShowShare }) {
 
                                             <TwitterShareButton
                                                 className="network__share-button"
-                                               url={window?.location?.href}
+                                                url={window?.location?.href}
                                                 quote="fb"
                                             >
                                                 <TwitterIcon
-                                                    size={32}
+                                                    size={64}
                                                     round={true}
 
                                                 />
@@ -64,52 +73,65 @@ function ShareModal({ showShare, setShowShare }) {
 
                                             <WhatsappShareButton
                                                 className="network__share-button"
-                                               url={window?.location?.href}
+                                                url={window?.location?.href}
                                                 quote="fb"
                                             >
                                                 <WhatsappIcon
-                                                    size={32}
+                                                    size={64}
                                                     round={true}
 
                                                 />
                                             </WhatsappShareButton>
 
-                                            <WhatsappShareButton
+                                            <TelegramShareButton
                                                 className="network__share-button"
-                                               url={window?.location?.href}
+                                                url={window?.location?.href}
                                                 quote="fb"
                                             >
-                                                <WhatsappIcon
-                                                    size={32}
+                                                <TelegramIcon
+                                                    size={64}
                                                     round={true}
 
                                                 />
-                                            </WhatsappShareButton>
+                                            </TelegramShareButton>
 
 
-                                            <WhatsappShareButton
+                                            <PinterestShareButton
                                                 className="network__share-button"
-                                               url={window?.location?.href}
+                                                url={window?.location?.href}
                                                 quote="fb"
                                             >
-                                                <WhatsappIcon
-                                                    size={32}
+                                                <PinterestIcon
+                                                    size={64}
                                                     round={true}
 
                                                 />
-                                            </WhatsappShareButton>
+                                            </PinterestShareButton>
 
 
-                                           
+                                            {/* <InstagramShareButton
+                                                className="network__share-button"
+                                                url={window?.location?.href}
+                                                quote="fb"
+                                            >
+                                                <InstagramIcon
+                                                    size={64}
+                                                    round={true}
+
+                                                />
+                                            </InstagramShareButton> */}
+
+
+
                                         </div>
 
                                         {/* <h1>sdfsdfsdf</h1> */}
                                         <div className="mt-8">
-                                        <button
-                                onClick={() => setShowShare(false)}
-                                type="button" className="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
-                                Cancel
-                            </button>
+                                            <button
+                                                onClick={() => setShowShare(false)}
+                                                type="button" className="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+                                                Cancel
+                                            </button>
                                         </div>
                                     </div>
                                 </div>

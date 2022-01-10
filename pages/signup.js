@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { auth } from '../firebase'
-import toast, { Toaster } from 'react-hot-toast';
+
 import { handleRegister } from '../services/common';
 
 
@@ -20,7 +20,8 @@ export default function Signup() {
 
 
     <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-md w-full space-y-8">
+           <div class="max-w-md w-full space-y-8 mt-7 border rounded-md p-10">
+
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-20 w-auto flex-no-shrink fill-current" viewBox="0 0 20 20" fill="currentColor">
             <path color="#3b82f6" fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
@@ -32,7 +33,7 @@ export default function Signup() {
           </h2>
 
         </div>
-        <Toaster />
+       
         <form class="mt-8 space-y-6" onSubmit={(e) => handleSubmit(e)}>
           <input type="hidden" name="remember" value="true" />
           <div class="rounded-md shadow-sm -space-y-px">
@@ -72,7 +73,7 @@ export default function Signup() {
 
 
           <div>
-            <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            <button type="submit" class="group relative w-full flex justify-center py-4 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
               <span class="absolute left-0 inset-y-0 flex items-center pl-3">
 
                 <svg class="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -82,7 +83,23 @@ export default function Signup() {
               Sign up
             </button>
           </div>
+
+          <div>
+            <p>
+            Already registered ? 
+
+            </p>
+          </div>
+
         </form>
+
+
+        <div>
+            <button type="submit" class="group relative w-full flex justify-center py-4 px-4 border border-transparent text-sm font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            
+              Sign in
+            </button>
+          </div>
       </div>
     </div>
   )

@@ -11,11 +11,14 @@ import moment from 'moment';
 import EditorHeader from '../../components/EditorHeader';
 import TextEditor from '../../components/TextEditor';
 import login from '../../components/Login';
+import Landing from '../../components/Landing';
 
 function doc({user}) {
 const [state, setstate] = useState({})
 const router = useRouter()
 const {id} = router.query;
+
+
 
 
   useEffect(() => {
@@ -33,6 +36,7 @@ const {id} = router.query;
           });
       }
     
+      if(!user) return <Landing />
 
 
     

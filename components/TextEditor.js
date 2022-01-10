@@ -3,7 +3,6 @@ import debounce from "lodash/debounce";
 import dynamic from "next/dynamic";
 import { useEffect, useMemo, useState } from "react";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
-import { useDocumentOnce } from "react-firebase-hooks/firestore";
 import { db } from "../firebase";
 import firebase from "firebase";
 

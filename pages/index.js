@@ -5,7 +5,6 @@ import { useState, useEffect } from 'react';
 import Button from "@material-tailwind/react/Button";
 import Icon from "@material-tailwind/react/Icon";
 import Image from 'next/image'
-import { useCollectionOnce } from 'react-firebase-hooks/firestore';
 import Modal from '../components/Modal';
 import DocumentList from '../components/DocumentList';
 import { db } from '../firebase';
@@ -102,7 +101,7 @@ if(!user) return <Landing />
         </section>
       </main>
 
-      <Modal showmodal={showmodal} setShowModal={setShowModal} user={user} />
+      <Modal showmodal={showmodal} setShowModal={setShowModal} user={user} lists={lists} setList={setList}/>
     </>
   )
 }

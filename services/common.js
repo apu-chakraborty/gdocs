@@ -1,12 +1,21 @@
 import { auth } from "../firebase"
+import { Alert } from "./Alert";
 
 
 export const handleLogin = async (email, password)=>{
         try{
           const result = await auth.signInWithEmailAndPassword(email,password)
-          alert( `welcome ${result.user.displayName}`)  
+          Alert.fire({
+            icon: "success",
+            title: `welcome ${result.user.displayName}`,
+          });
+          window.location.href = "/";
+
         }catch(err){
-          alert( err.message)    
+          Alert.fire({
+            icon: "error",
+            title: err.message,
+          });
         }
         
      }
@@ -17,9 +26,16 @@ export const handleLogin = async (email, password)=>{
         await result.user.updateProfile({
             displayName:name
         })
-        alert( `welcome ${result.user.displayName}`)  
+        
+        Alert.fire({
+          icon: "success",
+          title: `welcome ${result.user.displayName}`,
+        });
         }catch(err){
-        alert(err.message)    
+          Alert.fire({
+            icon: "error",
+            title: err.message,
+          });
         }
         
      }
@@ -27,10 +43,16 @@ export const handleLogin = async (email, password)=>{
     export const handleSignout = () => {
         auth.signOut().then(function() {
             // Sign-out successful.
-            alert("succes")
+            Alert.fire({
+              icon: "success",
+              title: `Logged Out Sucessfully`,
+            });
           }).catch(function(error) {
             // An error happened.
-            alert(error)
+            Alert.fire({
+              icon: "error",
+              title: error.message,
+            });
     
           });
        }

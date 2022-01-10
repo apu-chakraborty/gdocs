@@ -7,9 +7,10 @@ import ShareModal from "./ShareModal";
 import { useState } from "react"
 import { auth } from "../firebase";
 import { handleSignout } from "../services/common";
+import moment from "moment";
 function EditorHeader({ fileName, timestamp }) {
     const [showShare, setShowShare] = useState(false)
-
+console.log(timestamp, "timestamp")
 
     return (
         <header className="flex justify-between items-center p-3 pb-1">
@@ -44,12 +45,12 @@ function EditorHeader({ fileName, timestamp }) {
                     <p className="option">View</p>
                     <p className="option">Format</p>
                     <p className="option">Tools</p>
-                    {timestamp && (
+                    {/* {timestamp && (
                         <p className="text-gray-500 underline ml-3">
                             Last edit was
-                            {/* {moment(state?.timestamp).calendar()} */}
+                            {timestamp}
                         </p>
-                    )}
+                    )} */}
                 </div>
             </div>
             <div className="flex items-center">
