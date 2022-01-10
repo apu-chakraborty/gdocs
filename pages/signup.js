@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { auth } from '../firebase'
+import Head from 'next/head'
 
 import { handleRegister } from '../services/common';
 
@@ -18,6 +19,15 @@ export default function Signup() {
 
   return (
 
+<>
+<Head>
+        <title>Gdocs</title>
+        <link rel="icon" href="/favicon.ico" />
+        <link
+          href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet"
+        />
+      </Head>
 
     <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
            <div class="max-w-md w-full space-y-8 mt-7 border rounded-md p-10">
@@ -104,5 +114,6 @@ export default function Signup() {
           </div>
       </div>
     </div>
+    </>
   )
 }

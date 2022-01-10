@@ -7,7 +7,7 @@ export const handleLogin = async (email, password)=>{
           const result = await auth.signInWithEmailAndPassword(email,password)
           Alert.fire({
             icon: "success",
-            title: `welcome ${result.user.displayName}`,
+            title: `welcome ${result.user.displayName ? result.user.displayName : result.user.email }`,
           });
           window.location.href = "/";
 

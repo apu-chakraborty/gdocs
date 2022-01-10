@@ -9,16 +9,16 @@ function Header({user}) {
 
     return (
         <div className="flex top-0 z-50 items-center  px-4 py-2 shadow-md bg-white full-width">
-            <Button
+            {/* <Button
                 color="gray"
                 buttonType="outline"
                 rounded={true}
                 iconOnly={true}
                 ripple="dark"
-                className="h-10 w-10 border-none mr-3">
+                className="hidden h-10 w-10 border-none mr-3">
                 <Icon name="menu"
                     size="2xl" />
-            </Button>
+            </Button> */}
 
             <Icon color="blue" name="description" size="4xl" />
 
