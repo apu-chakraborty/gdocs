@@ -70,14 +70,41 @@ console.log(timestamp, "timestamp")
                     </svg>
                     Share
                 </Button>
-                <Image
+
+                <Button
+                onClick={(e) => handleSignout(e)}
+
+                    color="indigo"
+                    buttonType="filled"
+                    className="hidden md:inline-flex h-10 mr-4"
+                    size="regular"
+                    rounded={false}
+                    iconOnly={false}
+                    ripple="light">
+                    <svg
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                class="w-4 h-4 ml-1"
+                viewBox="0 0 24 24"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+                    Signout
+                </Button>
+
+
+             
+                {/* <Image
                     src='/img/nopic.png'
                     alt="Picture of the user"
                     width={35}
                     height={35}
                     className="cursor-pointer rounded-full ml-4"
                 onClick={(e) => handleSignout(e)}
-                />
+                /> */}
             </div>
 
             {showShare ?

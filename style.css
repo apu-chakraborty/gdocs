@@ -5,3 +5,7 @@
 		@apply cursor-pointer hover:bg-gray-100 transition duration-200 ease-out px-2.5 p-1 rounded-lg;
 	}
 }
+
+.rdw-editor-main {
+    height: 100vh!important;
+}

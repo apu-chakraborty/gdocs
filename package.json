@@ -11,6 +11,8 @@
     "@material-tailwind/react": "0.3.4",
     "draft-js": "^0.11.7",
     "firebase": "^8.2.3",
+    "firebase-tools": "^13.6.0",
+    "global": "^4.4.0",
     "i": "^0.3.7",
     "moment": "^2.29.1",
     "next": "^11.0.0",
