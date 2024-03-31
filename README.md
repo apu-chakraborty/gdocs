@@ -61,10 +61,9 @@ To install the project dependencies, follow these steps:
 2. **Clone the Repository**: Clone the project repository to your local machine using Git:
 
    ```bash
-   git clone https://github.com/your-username/your-project.git
+   https://github.com/apu-chakraborty/gdocs.git
    ```
 
-   Replace `your-username` with your GitHub username and `your-project` with the name of your project repository.
 
 3. **Navigate to the Project Directory**: Change your current directory to the project directory:
 
