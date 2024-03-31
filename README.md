@@ -1,5 +1,4 @@
-# Project Name
-
+# Gdox
 This project is a clone of Google Docs, providing a collaborative document editing platform similar to Google's offering. It allows users to sign in, sign up, create documents, edit documents, and list existing documents.
 
 ## Features
